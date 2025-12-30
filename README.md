@@ -1,12 +1,38 @@
-# Semantic Book Recommender — End-to-End LLM Pipeline
+# Semantic Book Recommender: An Emotion-Aware NLP Pipeline
 
-A complete, admissions-ready project that takes a raw Kaggle books dataset and turns it into a **semantic, emotion-aware book recommendation app** with a clean **Gradio** UI.  
-It demonstrates both **theory** (representation learning, similarity search, zero-shot classification) and **practice** (EDA → data cleaning → LLM-powered enrichment → interactive dashboard).
+**Author:** Syed Adnan Ali  
+**Technical Focus:** Semantic Search, Representation Learning, Zero-Shot Classification, Sentiment Analysis
 
-> **Why this is compelling for MS (DS/AI) admissions**
-> - Shows mastery of the *full lifecycle*: data ingestion, exploratory analysis, modeling choices, evaluation of trade-offs, and deployment.  
-> - Uses **three** distinct LLM capabilities: embeddings for semantic search, **zero-shot** topic classification, and **emotion** analysis.  
-> - Clear engineering: reproducible notebooks, modular code, environment variables, and a one-command app.
+---
+
+## Project Overview
+
+This repository features an end-to-end Data Science pipeline that transforms raw bibliographic data into an interactive, semantic-aware recommendation engine. The project demonstrates the integration of multiple Large Language Model (LLM) capabilities to solve traditional data challenges, such as sparse category mapping and nuanced user intent.
+
+### Key Data Science Competencies
+* **Representation Learning:** Utilized **OpenAI Embeddings** and **Cosine Similarity** to implement semantic retrieval, moving beyond keyword-based search.
+* **Zero-Shot Classification:** Employed `facebook/bart-large-mnli` to simplify a high-cardinality dataset (500+ categories) into 4 meaningful genres, ensuring 100% coverage of "long-tail" data.
+* **Emotion Analytics:** Integrated a **DistilRoBERTa-based** classifier to enrich the dataset with human-centric emotional dimensions (Ekman’s basic emotions).
+* **System Design:** Developed a modular architecture connecting exploratory data analysis (EDA), a vector database (ChromaDB), and a web-based UI (Gradio).
+
+---
+
+## Technical Pipeline & Architecture
+
+The system follows a rigorous four-stage pipeline designed for accuracy and scalability:
+
+1.  **EDA & Probabilistic Cleaning:** Conducted missingness heatmaps and correlation analysis to justify description-length cutoffs without introducing bias into other dimensions, such as ratings or book age.
+2.  **Category Engineering:** Simplified the taxonomy using a hybrid approach: high-frequency categories were retained, while low-frequency entries were mapped via **Zero-Shot Inference** using BART-MNLI.
+3.  **Vector Store Integration:** Constructed a persistent vector index using **ChromaDB** and **LangChain**, allowing for sub-second similarity search across 5,000+ titles.
+4.  **Emotional Re-ranking:** Implemented a filtering layer that uses per-emotion scores (joy, surprise, fear, etc.) to re-sort semantic results based on user-defined "tone".
+
+---
+
+## Performance & Results
+
+* **Semantic Accuracy:** Successfully retrieves conceptually related titles (e.g., querying "survival in the wilderness" returns survivalist nonfiction and adventure fiction).
+* **Pipeline Efficiency:** Pre-calculated embeddings and emotion scores are cached in `data/books_with_emotions.csv` to minimize runtime latency and API costs.
+* **User Interface:** The **Gradio dashboard** provides a responsive gallery view, displaying cover art, metadata, and truncated summaries.
 
 ---
 
@@ -179,19 +205,8 @@ Example query ideas:
 
 ---
 
-## 📝 Academic Takeaways (for SOP/Resume)
-- Built an **end-to-end pipeline** combining EDA, unsupervised zero-shot labeling, and **emotion-aware** semantic retrieval.  
-- Evaluated **data quality** and **representation bias** before modeling; justified filtering choices quantitatively.  
-- Engineered a **reproducible** stack (env vars, requirements, modular notebooks + app) and delivered a working demo.
-
-> **Resume bullet (example):**  
-> *Designed and deployed a semantic book recommender (5k+ titles) using OpenAI embeddings, zero-shot BART-MNLI for category mapping, and DistilRoBERTa emotion analysis; built a Gradio UI with genre/emotion filtering and cosine similarity retrieval.*
-
----
-
-## ⚖️ Ethical/Operational Notes
-- Embedding & HF model calls may send text to third-party APIs; scrub PII and respect dataset licenses.  
-- Provide user controls to disable certain data or opt-out from emotion analysis if using personal text.
+## Academic Reflection
+Building this project provided a rigorous understanding of the transition from traditional descriptive statistics to predictive and semantic enrichment. By justifying data filtering through correlation analysis and employing zero-shot models for data cleaning, I demonstrated a "Data-First" approach to AI development. The final system reflects a successful balance between technical complexity (vector embeddings) and user-centric design (emotional filtering), highlighting a mastery of the full data science lifecycle from ingestion to deployment.
 
 ---
 
@@ -200,5 +215,4 @@ Example query ideas:
 
 ---
 
-## 📜 License
-MIT — see [LICENSE](./LICENSE).
+*This project was developed as an educational deep-dive. For admissions review only.*
