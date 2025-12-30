@@ -206,7 +206,7 @@ Example query ideas:
 ---
 
 ## Academic Reflection
-Building this project provided a rigorous understanding of the transition from traditional descriptive statistics to predictive and semantic enrichment. By justifying data filtering through correlation analysis and employing zero-shot models for data cleaning, I demonstrated a "Data-First" approach to AI development. The final system reflects a successful balance between technical complexity (vector embeddings) and user-centric design (emotional filtering), highlighting a mastery of the full data science lifecycle from ingestion to deployment.
+Building this project provided a rigorous opportunity to bridge the transition from traditional descriptive statistics to semantic enrichment. By leveraging correlation analysis to justify data filtering and employing zero-shot models for data cleaning, I adopted a 'Data-First' approach to AI development. The final system strikes a balance between technical complexity and user-centric design, offering a comprehensive view of the data science lifecycle from initial ingestion to final deployment.
 
 ---
 
