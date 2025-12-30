@@ -9,6 +9,8 @@
 
 This repository features an end-to-end Data Science pipeline that transforms raw bibliographic data into an interactive, semantic-aware recommendation engine. The project demonstrates the integration of multiple Large Language Model (LLM) capabilities to solve traditional data challenges, such as sparse category mapping and nuanced user intent.
 
+---
+
 ### Key Data Science Competencies
 * **Representation Learning:** Utilized **OpenAI Embeddings** and **Cosine Similarity** to implement semantic retrieval, moving beyond keyword-based search.
 * **Zero-Shot Classification:** Employed `facebook/bart-large-mnli` to simplify a high-cardinality dataset (500+ categories) into 4 meaningful genres, ensuring 100% coverage of "long-tail" data.
