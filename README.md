@@ -39,7 +39,7 @@ The system follows a rigorous four-stage pipeline designed for accuracy and scal
 ---
 
 ## 📌 TL;DR
-- **Input:** Kaggle books dataset (titles, subtitles, categories, descriptions, ISBN, etc.).  
+- **Input:** Kaggle "7k+ Books" dataset (titles, subtitles, categories, descriptions, ISBN, etc.).  
 - **Process:** EDA & cleaning → category simplification → zero-shot mapping → emotion scoring → vector DB → cosine similarity retrieval.  
 - **Output:** A **Gradio dashboard** that returns **semantic recommendations** for any user query, filterable by **genre** (4 categories) and **emotion** (Ekman + neutral).
 
